@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Get Nexora</title>
+  <meta name="description" content="Install Nexora on your phone, tablet, computer or TV. Free, ad-free music.">
+  <meta name="theme-color" content="#090910">
+  <meta name="color-scheme" content="dark light">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" href="/icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+  <style>
+    :root { --bg: #090910; --surface: #161625; --line: rgba(255,255,255,.1); --text: #f4f4fa; --muted: #a2a2bd; --accent: #8b6cff; --accent2: #00d4ff; --ok: #3ddc97; }
+    @media (prefers-color-scheme: light) { :root { --bg: #f5f5fa; --surface: #fff; --line: rgba(10,10,40,.1); --text: #14141f; --muted: #626280; } }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif; min-height: 100vh; padding: max(20px, env(safe-area-inset-top)) 16px max(28px, env(safe-area-inset-bottom)); }
+    main { max-width: 640px; margin: 0 auto; display: grid; gap: 18px; }
+    header { display: flex; align-items: center; gap: 12px; padding-top: 8px; } header img { width: 48px; height: 48px; border-radius: 12px; } header b { letter-spacing: .22em; font-size: 20px; }
+    h1 { font-size: clamp(26px, 6vw, 36px); line-height: 1.15; margin: 4px 0 0; } h1 span { background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .lead { color: var(--muted); margin: 0; }
+    .card { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 18px; display: grid; gap: 12px; }
+    .card.main { border-color: var(--accent); box-shadow: 0 10px 40px rgba(139,108,255,.18); }
+    .card h2 { margin: 0; font-size: 18px; } .card p { margin: 0; color: var(--muted); }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 52px; padding: 0 22px; border-radius: 999px; border: 0; font: 700 17px system-ui, sans-serif; color: #fff; background: linear-gradient(135deg, var(--accent), #3b82f6); text-decoration: none; cursor: pointer; }
+    .btn.ghost { background: transparent; color: var(--text); border: 1px solid var(--line); font-weight: 600; min-height: 44px; font-size: 15px; }
+    ol { margin: 0; padding-left: 22px; color: var(--text); display: grid; gap: 6px; } ol b { color: var(--text); }
+    code { background: rgba(127,127,160,.18); padding: 2px 6px; border-radius: 6px; font-size: 14px; word-break: break-all; }
+    details { border: 1px solid var(--line); border-radius: 14px; padding: 12px 16px; background: var(--surface); } summary { cursor: pointer; font-weight: 600; } details[open] summary { margin-bottom: 8px; } details p, details ol { color: var(--muted); }
+    .ok { color: var(--ok); font-weight: 600; } small, .tiny { color: var(--muted); font-size: 13px; }
+    .row { display: flex; flex-wrap: wrap; gap: 10px; } [hidden] { display: none !important; }
+    .share { display: flex; gap: 8px; align-items: center; } .share input { flex: 1; min-width: 0; height: 44px; border-radius: 12px; border: 1px solid var(--line); background: var(--bg); color: var(--text); padding: 0 12px; font: inherit; font-size: 14px; }
+  </style>
+</head>
+<body>
+<main>
+  <header><img src="/icons/icon-192.png" alt=""><b>NEXORA</b></header>
+  <div>
+    <h1>Free music.<br><span>One tap to install.</span></h1>
+    <p class="lead" id="detected">Finding the best way to install on your device…</p>
+  </div>
+
+  <!-- the one thing to do on THIS device; install.js fills and shows the right block -->
+  <section class="card main" id="primary" hidden></section>
+
+  <h2 style="margin:6px 0 0;font-size:16px;color:var(--muted)">Other devices</h2>
+  <div id="others" style="display:grid;gap:10px">
+    <details data-os="android"><summary>Android phone or tablet</summary>
+      <ol><li>Open this page in <b>Chrome</b>.</li><li>Tap <b>Install Nexora</b> (or the menu <b>⋮</b> → <b>Install app</b>).</li><li>Open Nexora from your home screen.</li></ol></details>
+    <details data-os="ios"><summary>iPhone or iPad</summary>
+      <ol><li>Open this page in <b>Safari</b> (not Chrome).</li><li>Tap the <b>Share</b> button (square with an arrow).</li><li>Tap <b>Add to Home Screen</b>, then <b>Add</b>.</li></ol></details>
+    <details data-os="windows"><summary>Windows computer</summary>
+      <ol><li>Download <a href="/downloads/Nexora-Setup.exe"><b>Nexora-Setup.exe</b></a> (35 KB) and open it.</li><li>If Windows says "protected your PC", click <b>More info</b> → <b>Run anyway</b>. (It is not signed because certificates cost money.)</li><li>Nexora appears on your Desktop and Start menu.</li></ol>
+      <p>Or in Edge/Chrome: click the install icon at the right of the address bar.</p></details>
+    <details data-os="mac"><summary>Mac</summary>
+      <ol><li><b>Safari:</b> menu <b>File → Add to Dock</b>.</li><li><b>Chrome / Edge:</b> click the install icon at the right of the address bar.</li></ol></details>
+    <details data-os="linux"><summary>Linux</summary>
+      <ol><li><b>Chrome / Chromium / Edge:</b> click the install icon in the address bar.</li><li>Or download <a href="/downloads/install-linux.sh"><b>install-linux.sh</b></a> and run <code>sh install-linux.sh</code>.</li></ol></details>
+    <details data-os="tv"><summary>Smart TV, Fire TV, Android TV</summary>
+      <ol><li>Open the TV's web browser and type this page's address.</li><li>Nexora switches to <b>TV mode</b> (big text, remote-friendly) by itself.</li><li>Or play on your phone, tap <b>Connect</b> and pick the TV.</li></ol>
+      <p>Apple TV has no browser: play on your iPhone and use AirPlay.</p></details>
+  </div>
+
+  <section class="card">
+    <h2>Send it to a friend</h2>
+    <p>One link works for every device. They open it, tap the big button, and ask for access. You approve them from your phone.</p>
+    <div class="share"><input id="link" readonly><button class="btn ghost" id="copy">Copy</button><button class="btn ghost" id="share" hidden>Share</button></div>
+  </section>
+
+  <p class="tiny">Already installed? <a href="/" style="color:var(--accent2)">Open Nexora in the browser</a>.</p>
+</main>
+<script src="/js/install.js"></script>
+</body>
+</html>

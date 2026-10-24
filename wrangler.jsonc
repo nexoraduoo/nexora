@@ -1,0 +1,42 @@
+{
+  // Nexora runs entirely on Cloudflare's free plan: one Worker serves the app
+  // (static files), the API, the realtime hub and the background catalogue agent.
+  "name": "nexora",
+  "main": "src/worker.js",
+  "compatibility_date": "2025-09-01",
+
+  // lists app files for the offline service worker before every dev run / deploy
+  "build": { "command": "node scripts/gen-precache.mjs" },
+
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS"
+  },
+
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "nexora",
+      "database_id": "00000000-0000-0000-0000-000000000000",
+      "migrations_dir": "migrations"
+    }
+  ],
+
+  // Realtime: "Nexora Connect" hub (one Durable Object per user) and "Listen together" rooms (one per room code)
+  "durable_objects": {
+    "bindings": [{ "name": "HUB", "class_name": "UserHub" }, { "name": "ROOM", "class_name": "Room" }]
+  },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["UserHub"] }, { "tag": "v2", "new_sqlite_classes": ["Room"] }],
+
+  // Private cloud locker for your own uploads. Optional: scripts/deploy.mjs removes this
+  // block if you choose not to enable R2 (Cloudflare may ask for a card to activate R2).
+  "r2_buckets": [{ "binding": "FILES", "bucket_name": "nexora-files" }],
+
+  // Background catalogue agent
+  "triggers": { "crons": ["*/2 * * * *"] },
+
+  "vars": {
+    "APP_NAME": "Nexora",
+    "SIGNUP_MODE": "approval" // "approval" = anyone can ask, you approve; "invite" = friends need a code; "open" = anyone can sign up
+  }
+}

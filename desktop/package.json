@@ -1,0 +1,15 @@
+{
+  "name": "nexora-desktop",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Nexora for Windows: your music in its own window, with media keys and tray.",
+  "author": "Nexora",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "powershell -NoProfile -ExecutionPolicy Bypass -File build-windows-app.ps1"
+  },
+  "devDependencies": {
+    "electron": "^45.0.0"
+  }
+}

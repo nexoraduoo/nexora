@@ -1,0 +1,10 @@
+node_modules/
+.wrangler/
+.dev.vars
+.tools/
+dist/
+*.log
+share/
+wrangler.deploy.jsonc
+MY-NEXORA-ADDRESS.txt
+MY-NEXORA-DOMAIN.txt

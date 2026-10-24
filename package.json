@@ -1,0 +1,22 @@
+{
+  "name": "nexora",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Nexora - ad-free, installable, multi-device music app for you and your circle.",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev --port 8787",
+    "db:local": "wrangler d1 migrations apply nexora --local",
+    "test": "node --test tests/*.test.mjs && node scripts/test-api.mjs",
+    "test:unit": "node --test tests/*.test.mjs",
+    "test:api": "node scripts/test-api.mjs",
+    "i18n": "node scripts/i18n-check.mjs",
+    "icons": "node scripts/make-icons.mjs",
+    "deploy": "node scripts/deploy.mjs"
+  },
+  "devDependencies": {
+    "htm": "^3.1.1",
+    "preact": "^10.29.8",
+    "wrangler": "^4"
+  }
+}
